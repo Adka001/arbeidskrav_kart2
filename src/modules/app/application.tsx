@@ -16,7 +16,7 @@ useGeographic();
 
 const osmLayer = new TileLayer({source: new OSM() });
 const defenceLayer = new VectorLayer({ source: new VectorSource( {
-        url: "/geojson/forsvarregion.geojsonjson", format: new GeoJSON(),
+        url: "http://localhost:5173/geojson/Sivilforsvarsdistrikter.geojson/", format: new GeoJSON(),
     })})
 const shelterLayer = new VectorLayer({ source: new VectorSource( {
         url: "/geojson/shelters.geojsonjson", format: new GeoJSON(),
