@@ -1,0 +1,34 @@
+.layer-control-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #0375ad;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.layer-control-buttons button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #64aef1;
+    color: #67acf1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.layer-control-buttons button:hover {
+    background-color: #67acf1;
+}
+
+#shelter-info {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 2000px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+}
