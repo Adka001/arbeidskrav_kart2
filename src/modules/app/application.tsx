@@ -70,7 +70,7 @@ const defenceLayer = new VectorLayer({
 
 const shelterLayer = new VectorLayer({
   source: new VectorSource({
-    url: "https://adka001.github.io/arbeidskrav_kart2/geojson/offentligetilfluktsrom.geojson",
+    url: "https://adka001.github.io/arbeidskrav_kart2/public/geojson/Offentligetilfluktsrom.geojson",
     format: new GeoJSON(),
   }),
   style: pointStyle,
