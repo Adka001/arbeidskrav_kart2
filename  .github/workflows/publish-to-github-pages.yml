@@ -21,4 +21,3 @@ jobs:
       id-token: write
       pages: write
       contents: read
-
