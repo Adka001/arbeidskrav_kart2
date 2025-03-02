@@ -84,6 +84,7 @@ export function Application() {
     const mapRef = useRef<HTMLDivElement | null>(null);
     const overlayRef = useRef<HTMLDivElement | null>(null);
     const [shelterInfo, setShelterInfo] = useState<string>("");
+    const [defenceInfo, setDefenceInfo] = useState<string>("");
     const [defenceLayerVisible, setDefenceLayerVisible] = useState(true);
     const [shelterLayerVisible, setShelterLayerVisible] = useState(true);
 
@@ -98,19 +99,26 @@ export function Application() {
             });
 
             map.addOverlay(overlay);
-
             map.on("click", (e) => {
                 const feature = map.forEachFeatureAtPixel(e.pixel, (feat) => feat);
                 if (feature) {
-                    const romnr = feature.get("romnr") || "Unknown Room Number";
-                    const plasser = feature.get("plasser") || "Unknown Capacity";
-                    const adresse = feature.get("adresse") || "Unknown Address";
+                    const featureType = feature.getGeometry().getType();
 
-                    setShelterInfo(`
-                        Room Number: ${romnr}<br/>
-                        Capacity: ${plasser}<br/>
-                        Address: ${adresse}
-                    `);
+                    if (featureType === 'Polygon') {
+                        const navn = feature.get("navn") || "Unknown Name";
+                        setDefenceInfo(`Region Name: ${navn}`);
+                        setShelterInfo("");
+                    } else {
+                        const romnr = feature.get("romnr") || "Unknown Room Number";
+                        const plasser = feature.get("plasser") || "Unknown Capacity";
+                        const adresse = feature.get("adresse") || "Unknown Address";
+                        setShelterInfo(`
+                            Room Number: ${romnr}<br/>
+                            Capacity: ${plasser}<br/>
+                            Address: ${adresse}
+                        `);
+                        setDefenceInfo("");
+                    }
 
                     overlay.setPosition(e.coordinate);
                 }
@@ -121,10 +129,8 @@ export function Application() {
                 style: hoverStyle,
             });
             map.addLayer(highlightLayer);
-
             map.on("pointermove", (e) => {
                 const featureAtPixel = map.forEachFeatureAtPixel(e.pixel, (feat) => feat);
-
                 if (featureAtPixel) {
                     highlightLayer.getSource()?.clear();
                     highlightLayer.getSource()?.addFeature(featureAtPixel);
@@ -166,10 +172,8 @@ export function Application() {
             alert("Geolocation is not supported by your browser.");
         }
     };
-
     return (
         <div style={{ display: "flex", height: "100vh", width: "100%", position: "relative" }}>
-            {}
             <div
                 ref={mapRef}
                 style={{
@@ -181,7 +185,6 @@ export function Application() {
                 }}
             />
 
-            {}
             <div
                 style={{
                     position: "absolute",
@@ -234,14 +237,13 @@ export function Application() {
                 </button>
             </div>
 
-            {}
             <div
                 ref={overlayRef}
-                id="shelter-info"
-                dangerouslySetInnerHTML={{ __html: shelterInfo }}
+                id="info-overlay"
+                dangerouslySetInnerHTML={{ __html: shelterInfo || defenceInfo }}
                 style={{
                     width: "400px",
-                    height: "100px",
+                    height: "150px",
                     padding: "10px",
                     borderLeft: "2px solid #ccc",
                     boxSizing: "border-box",
@@ -257,5 +259,3 @@ export function Application() {
         </div>
     );
 }
-
-
