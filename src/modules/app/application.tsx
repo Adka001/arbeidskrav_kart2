@@ -62,7 +62,7 @@ const osmLayer = new TileLayer({
 
 const defenceLayer = new VectorLayer({
   source: new VectorSource({
-    url: "/arbeidskrav_kart2/geojson/Sivilforsvarsdistrikter.geojson",
+    url: "arbeidskrav_kart2/public/geojson/Sivilforsvarsdistrikter.geojson",
     format: new GeoJSON(),
   }),
   style: polygonStyle,
@@ -70,7 +70,7 @@ const defenceLayer = new VectorLayer({
 
 const shelterLayer = new VectorLayer({
   source: new VectorSource({
-    url: "arbeidskrav_kart2/geojson/Offentligetilfluktsrom.geojson",
+    url: "arbeidskrav_kart2/public/geojson/Offentligetilfluktsrom.geojson",
     format: new GeoJSON(),
   }),
   style: pointStyle,
