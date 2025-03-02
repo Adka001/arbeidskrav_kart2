@@ -1,7 +1,9 @@
 ## Kommentarer Gitt til:
-Fin og oversiktlig kart, enkelt å bruke og kult med extra info om posisjon og skoler. 
-Lett å finne seg frem til informasjonen om skolene, tilflukstrommene og grensene. 
+
+Fin og oversiktlig kart, enkelt å bruke og kult med extra info om posisjon og skoler.
+Lett å finne seg frem til informasjonen om skolene, tilflukstrommene og grensene.
 veldig strukturert og ordnet kode. Bra jobba!
+
 Adrian Kastrati
 Marianne Eriksen
 
