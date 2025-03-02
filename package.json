@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/Adka001/arbeidskrav_kart2/issues"
   },
-  "homepage": "https://github.com/Adka001/arbeidskrav_kart2#readme",
+  "homepage": "https://github.com/Adka001/arbeidskrav_kart2",
   "dependencies": {
     "ol": "^10.4.0",
     "react": "^19.0.0",
