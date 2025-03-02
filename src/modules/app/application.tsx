@@ -62,7 +62,7 @@ const osmLayer = new TileLayer({
 
 const defenceLayer = new VectorLayer({
   source: new VectorSource({
-    url: "arbeidskrav_kart2/geojson/Sivilforsvarsdistrikter.geojson",
+    url: "/arbeidskrav_kart2/geojson/Sivilforsvarsdistrikter.geojson",
     format: new GeoJSON(),
   }),
   style: polygonStyle,
